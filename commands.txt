@@ -1,0 +1,40 @@
+post
+
+http://localhost:8080/auth/register
+
+{
+    "username": "test",
+    "password": "test",
+    "email": "test@example.com"
+}
+
+post
+
+http://localhost:8080/auth/login
+
+{
+    "username": "test",
+    "password": "test"
+}
+
+get
+
+http://localhost:8080/users
+
+get
+
+http://localhost:8080/products
+
+post
+
+http://localhost:8080/products
+
+{
+    "name": "product1",
+    "price": 100
+}
+
+
+pgadmin: http://localhost:8090/
+
+eureca: http://localhost:8761/

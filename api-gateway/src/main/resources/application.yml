@@ -1,0 +1,34 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/auth/**,/users/**
+          filters:
+            - name: JwtFilter
+              args:
+                pathPattern: /users/**
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
+          filters:
+            - name: JwtFilter
+              args:
+                pathPattern: /products/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+jwt:
+  secret: 01234567890123456789012345678901234567890123456789
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    com.example.apigateway: DEBUG
