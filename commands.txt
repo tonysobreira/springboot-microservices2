@@ -38,3 +38,9 @@ http://localhost:8080/products
 pgadmin: http://localhost:8090/
 
 eureca: http://localhost:8761/
+
+
+Docker:
+
+docker-compose up --build
+
